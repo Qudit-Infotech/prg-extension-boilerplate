@@ -1,10 +1,13 @@
-const initialState = {
-    session: {
-        user: {
-            username: 'anon'
-        }
-    }
-};
+// Expected valid Sate
+// {
+//     session: {
+//         user: {
+//             username: 'anon'
+//         }
+//     }
+// }
+
+const initialState = null;
 
 const reducer = function (state, action) {
     if (typeof state === 'undefined') state = initialState;

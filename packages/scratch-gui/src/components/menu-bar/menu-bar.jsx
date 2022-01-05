@@ -804,8 +804,8 @@ const mapStateToProps = (state, ownProps) => {
         userOwnsProject: ownProps.authorUsername && user &&
             (ownProps.authorUsername === user.username),
         vm: state.scratchGui.vm,
-        canSave: true,
-        canCreateCopy: true,
+        canSave: !!user,
+        canCreateCopy: !!user
     };
 };
 
