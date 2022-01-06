@@ -17,3 +17,6 @@ npm-*
 # Generated translation files
 /translations
 /locale
+
+#Env variables
+.env
