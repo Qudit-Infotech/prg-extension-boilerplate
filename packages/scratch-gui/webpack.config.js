@@ -6,6 +6,8 @@ var webpack = require('webpack');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+var Dotenv = require('dotenv-webpack');
+
 
 // PostCss
 var autoprefixer = require('autoprefixer');
@@ -17,7 +19,7 @@ const STATIC_PATH = process.env.STATIC_PATH || '/static';
 const base = {
     mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
     node: {
-        fs: "empty"
+        fs: 'empty'
     },
     devtool: 'cheap-module-source-map',
     devServer: {
@@ -185,7 +187,10 @@ module.exports = [
             new CopyWebpackPlugin([{
                 from: 'extension-worker.{js,js.map}',
                 context: 'node_modules/scratch-vm/dist/web'
-            }])
+            }]),
+            new Dotenv({
+                path: `./.env`
+            })
         ])
     })
 ].concat(

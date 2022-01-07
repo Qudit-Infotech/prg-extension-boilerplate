@@ -22,13 +22,11 @@ const SessionHOC = function (WrappedComponent) {
         }
 
         componentDidMount (){
-            window.console.log('component did mount');
             const [accessToken] = getSessionCookies();
-            window.console.log(process.env);
             if (accessToken){
                 xhr({
                     method: 'GET',
-                    uri: 'http://localhost:8088/api/user',
+                    uri: `${process.env.REACT_APP_API_ENDPOINT}api/user`,
                     headers: {authorization: `Bearer ${accessToken}`},
                     json: true
                 }, (error, response) => {
