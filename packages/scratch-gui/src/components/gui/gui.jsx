@@ -92,6 +92,7 @@ const GUIComponent = props => {
         logo,
         modelsTabVisible,
         renderLogin,
+        onSignViaQubits,
         onClickAccountNav,
         onCloseAccountNav,
         onLogOut,
@@ -221,6 +222,7 @@ const GUIComponent = props => {
                     isShared={isShared}
                     logo={logo}
                     renderLogin={renderLogin}
+                    onSignViaQubits={onSignViaQubits}
                     showComingSoon={showComingSoon}
                     onClickAccountNav={onClickAccountNav}
                     onClickLogo={onClickLogo}

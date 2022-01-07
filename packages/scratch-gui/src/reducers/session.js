@@ -8,7 +8,7 @@
 // }
 const SET_SESSION_USER = 'session/SET_SESSION_USER';
 
-const initialState = null;
+const initialState = {session: null};
 
 const reducer = function (state, action) {
     if (typeof state === 'undefined') state = initialState;

@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import xhr from 'xhr';
+import {FormattedMessage} from 'react-intl';
 import {connect} from 'react-redux';
 import {getSessionCookies, removeSessionCookies} from './session-utils';
 import {setSessionUser} from '../reducers/session';
@@ -51,6 +52,31 @@ const SessionHOC = function (WrappedComponent) {
             window.location.reload();
         }
 
+        renderLogin ({onSignViaQubits}) {
+            return (
+                <div onClick={onSignViaQubits} >
+                    <FormattedMessage
+                        defaultMessage="Sign in via Qubits"
+                        description="Link for signing in via Qubits"
+                        id="gui.menuBar.signInViaQubits"
+                    />
+                </div>);
+        }
+
+        handleSignViaQubits () {
+            window.location.href = `${
+                process.env.REACT_APP_QUBITS_EDX_BASE_URL
+            }oauth2/authorize?client_id=${
+                process.env.REACT_APP_QUBITS_EDX_APP_CLIENT_ID
+            }&scopr=email,profile&response_type=code`;
+        }
+
+        handleJoinQubits () {
+            window.open(`${
+                process.env.REACT_APP_QUBITS_EDX_BASE_URL
+            }register`, '_blank').focus();
+        }
+
         render () {
             const {
                 ...componentProps
@@ -59,6 +85,9 @@ const SessionHOC = function (WrappedComponent) {
                 <WrappedComponent
                     isLoadingSession={this.isLoadingSession}
                     onLogOut={this.handleOnLogout}
+                    renderLogin={this.renderLogin}
+                    onSignViaQubits={this.handleSignViaQubits}
+                    onOpenRegistration={this.handleJoinQubits}
                     {...componentProps}
                 />
             );

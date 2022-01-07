@@ -270,6 +270,10 @@ class MenuBar extends React.Component {
         }
     }
     render () {
+
+
+        window.console.log('onLoginPress prop', this.props.onLoginPress);
+
         const saveNowMessage = (
             <FormattedMessage
                 defaultMessage="Save now"
@@ -639,9 +643,9 @@ class MenuBar extends React.Component {
                                     onMouseUp={this.props.onOpenRegistration}
                                 >
                                     <FormattedMessage
-                                        defaultMessage="Join Scratch"
+                                        defaultMessage="Join Qubits"
                                         description="Link for creating a Scratch account"
-                                        id="gui.menuBar.joinScratch"
+                                        id="gui.menuBar.joinQubits"
                                     />
                                 </div>
                                 <div
@@ -663,6 +667,7 @@ class MenuBar extends React.Component {
                                         isRtl={this.props.isRtl}
                                         renderLogin={this.props.renderLogin}
                                         onClose={this.props.onRequestCloseLogin}
+                                        onSignViaQubits={this.props.onSignViaQubits}
                                     />
                                 </div>
                             </React.Fragment>
@@ -767,6 +772,7 @@ MenuBar.propTypes = {
     onRequestCloseFile: PropTypes.func,
     onRequestCloseLanguage: PropTypes.func,
     onRequestCloseLogin: PropTypes.func,
+    onSignViaQubits: PropTypes.func,
     onSeeCommunity: PropTypes.func,
     onShare: PropTypes.func,
     onToggleLoginOpen: PropTypes.func,

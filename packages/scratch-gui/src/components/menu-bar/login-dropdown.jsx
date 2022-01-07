@@ -49,7 +49,8 @@ const LoginDropdown = ({
     isOpen,
     isRtl,
     onClose,
-    renderLogin
+    renderLogin,
+    onSignViaQubits
 }) => (
     <MenuBarMenu
         className={className}
@@ -65,7 +66,8 @@ const LoginDropdown = ({
             )}
         >
             {renderLogin({
-                onClose: onClose
+                onClose: onClose,
+                onSignViaQubits: onSignViaQubits
             })}
         </div>
     </MenuBarMenu>
@@ -76,6 +78,7 @@ LoginDropdown.propTypes = {
     isOpen: PropTypes.bool,
     isRtl: PropTypes.bool,
     onClose: PropTypes.func,
+    onSignViaQubits: PropTypes.func,
     renderLogin: PropTypes.func
 };
 
