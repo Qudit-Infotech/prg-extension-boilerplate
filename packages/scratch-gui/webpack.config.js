@@ -150,26 +150,26 @@ module.exports = [
             new HtmlWebpackPlugin({
                 chunks: ['lib.min', 'gui'],
                 template: 'src/playground/index.ejs',
-                title: 'PRG AI Blocks',
+                title: 'Qubits Scratch Blocks',
                 sentryConfig: process.env.SENTRY_CONFIG ? '"' + process.env.SENTRY_CONFIG + '"' : null
             }),
             new HtmlWebpackPlugin({
                 chunks: ['lib.min', 'blocksonly'],
                 template: 'src/playground/index.ejs',
                 filename: 'blocks-only.html',
-                title: 'PRG AI Blocks: Blocks Only Example'
+                title: 'Qubits Scratch Blocks: Blocks Only Example'
             }),
             new HtmlWebpackPlugin({
                 chunks: ['lib.min', 'compatibilitytesting'],
                 template: 'src/playground/index.ejs',
                 filename: 'compatibility-testing.html',
-                title: 'PRG AI Blocks: Compatibility Testing'
+                title: 'Qubits Scratch Blocks: Compatibility Testing'
             }),
             new HtmlWebpackPlugin({
                 chunks: ['lib.min', 'player'],
                 template: 'src/playground/index.ejs',
                 filename: 'player.html',
-                title: 'PRG AI Blocks: Player Example'
+                title: 'Qubits Scratch Blocks: Player Example'
             }),
             new CopyWebpackPlugin([{
                 from: 'static',
