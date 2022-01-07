@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import xhr from 'xhr';
 import {connect} from 'react-redux';
-import {getSessionCookies} from './session-utils';
+import {getSessionCookies, removeSessionCookies} from './session-utils';
 import {setSessionUser} from '../reducers/session';
 
 /*
@@ -48,6 +48,11 @@ const SessionHOC = function (WrappedComponent) {
             }
         }
 
+        handleOnLogout (){
+            removeSessionCookies();
+            window.location.reload();
+        }
+
         render () {
             const {
                 ...componentProps
@@ -55,6 +60,7 @@ const SessionHOC = function (WrappedComponent) {
             return (
                 <WrappedComponent
                     isLoadingSession={this.isLoadingSession}
+                    onLogOut={this.handleOnLogout}
                     {...componentProps}
                 />
             );
